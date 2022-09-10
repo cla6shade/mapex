@@ -6,10 +6,12 @@ class ApexApiHandler{
     constructor(token){
         this.token = token
         this.info = {}
-        setInterval(this.update.bind(this), 1000)
+        setInterval(this.update.bind(this), 3000)
     }
     update(){
         this.getMapInfo().then((response)=>{
+            if(typeof response.data === "undefined")
+                return
             this.info = response.data
         })
     }
