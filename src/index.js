@@ -1,32 +1,22 @@
-const Discord = require('discord.js')
 const fs = require('fs')
 
-const TOKEN_FILE = "token.txt"
+const DISCORD_TOKEN_FILE = "discord_token.txt"
+const APEX_TOKEN_FILE = "apex_token.txt"
 
-const prefix = "!"
+const discord_token = fs.readFileSync(DISCORD_TOKEN_FILE).toString()
+const apex_token = fs.readFileSync(APEX_TOKEN_FILE).toString()
 
-const {Client, GatewayIntentBits} = require('discord.js')
+const DiscordAuth = require("./DiscordAuth.js")
+const EventHandler = require("./EventHandler.js")
+const ApexApiHandler = require("./ApexApiHandler.js")
 
-const client = new Client({intents:[
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.DirectMessages,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent
-    ]})
+const auth = new DiscordAuth(discord_token)
+let eventHandler, apexApiHandler;
+auth.login().then(()=>{
+    let client = auth.client
+    //apex handler register
+    apexApiHandler = new ApexApiHandler(apex_token)
 
-client.on('ready', () => {
-    console.log(client.user.tag + "(으)로 로그인되었습니다.")
+    eventHandler = new EventHandler(client, apexApiHandler)
+    eventHandler.bindEventListener()
 })
-client.on('messageCreate', message => {
-    let text = message.content
-    if(! text.startsWith(prefix)){
-        return;
-    }
-    let args = text.split(" ")
-    let cmd = split.shift()
-    if(cmd===prefix + 'mapex'){
-    }
-})
-
-let token = fs.readFileSync(TOKEN_FILE).toString()
-client.login(token)

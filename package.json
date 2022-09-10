@@ -10,6 +10,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.27.2",
+    "date-utils": "^1.2.21",
     "discord.js": "^14.3.0",
     "fs": "^0.0.1-security"
   }
