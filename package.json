@@ -1,0 +1,16 @@
+{
+  "name": "mapex",
+  "version": "1.0.0",
+  "description": "Discord bot for Apex Legends player",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.3.0",
+    "fs": "^0.0.1-security"
+  }
+}
