@@ -18,9 +18,12 @@ class ApexApiHandler{
         return this.get(APEX_API_URL, {auth: this.token})
     }
     async get(url, params){
-        return await axios.get(url, {
-            params: params
-        })
+        try {
+            return await axios.get(url, {
+                params: params
+            })
+        } catch (e) {
+        }
     }
 }
 module.exports = ApexApiHandler;

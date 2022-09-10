@@ -12,14 +12,11 @@ const ApexApiHandler = require("./ApexApiHandler.js")
 
 const auth = new DiscordAuth(discord_token)
 let eventHandler, apexApiHandler;
-try {
-    auth.login().then(() => {
-        let client = auth.client
-        //apex handler register
-        apexApiHandler = new ApexApiHandler(apex_token)
+auth.login().then(() => {
+    let client = auth.client
+    //apex handler register
+    apexApiHandler = new ApexApiHandler(apex_token)
 
-        eventHandler = new EventHandler(client, apexApiHandler)
-        eventHandler.bindEventListener()
-    })
-} catch (_) {
-}
+    eventHandler = new EventHandler(client, apexApiHandler)
+    eventHandler.bindEventListener()
+})
