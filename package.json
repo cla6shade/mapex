@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "Lesser Gnu Public License",
   "dependencies": {
     "axios": "^0.27.2",
     "date-utils": "^1.2.21",
