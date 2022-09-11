@@ -10,7 +10,7 @@ class ApexApiHandler{
     }
     update(){
         this.getMapInfo().then((response)=>{
-            if(typeof response.data === "undefined")
+            if(! response.data || response.data.length === 0)
                 return
             this.info = response.data
         })
