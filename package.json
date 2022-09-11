@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "Lesser Gnu Public License",
+  "license": "GNU Lesser General Public License v2.1",
   "dependencies": {
     "axios": "^0.27.2",
     "date-utils": "^1.2.21",
