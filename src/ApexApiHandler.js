@@ -25,6 +25,7 @@ class ApexApiHandler{
                 params: params
             })
         } catch (e) {
+            return {}
         }
     }
 }
