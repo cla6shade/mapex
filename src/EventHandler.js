@@ -36,12 +36,15 @@ class EventHandler{
         }
         if(cmd==="capex"){
             let items = this.apexApi.getCraftItems()
-            let text = "현재 제작 로테이션: ";
+            if(items.length === 0){
+                origin.reply("서버에서 정보를 불러오는 중입니다. 잠시만 기다려주세요.")
+            }
+            let text = "";
             for(let i in items){
                 let item = items[i]
                 text += item + " ";
             }
-            origin.reply(text)
+            origin.reply("현재 제작 로테이션: " + text)
         }
     }
 }

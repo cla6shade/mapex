@@ -64,11 +64,12 @@ class ApexApiHandler{
 
     getCraftItems(){
         // bundle no 0, 1, 2, 3: deadshot, equipment, weapon1, weapon2
-        if(! this.craftInfo || this.craftInfo.length === 0)
+        if(! this.craftInfo || this.craftInfo.length === 0) {
             return []
+        }
         let ret = []
         for(let i=0; i<4;i++){
-            let bundle = this.craftInfo
+            let bundle = this.craftInfo[i]
             let contents = bundle.bundleContent;
             for(let key in contents){
                 let content = contents[key]
