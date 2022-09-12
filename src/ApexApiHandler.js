@@ -79,8 +79,10 @@ class ApexApiHandler{
         return ret;
     }
     async init(){
-        this.mapInfo = await this.requestMapInfo()
-        this.craftInfo = await this.requestCraftInfo()
+        let mResp = await this.requestMapInfo()
+        let cResp = await this.requestCraftInfo()
+        this.mapInfo = mResp.data;
+        this.cResp = cResp.data;
     }
     getMapInfo(){
         return this.mapInfo
