@@ -21,6 +21,7 @@ class EventHandler{
         console.log(this.client.user.tag + "(으)로 로그인 되었습니다.")
     }
     handleCommand(cmd, params, origin){ // origin은 message의 원래 객체
+        cmd = cmd.toLowerCase()
         if(cmd==="mapex"){
             let info = this.apexApi.getMapInfo();
             if(info.length === 0 || typeof info.current === "undefined"){
