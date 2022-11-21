@@ -1,4 +1,4 @@
-class EventHandler {
+class DiscordHandler {
     constructor(client, apex) {
         this.client = client
         this.apexApi = apex
@@ -26,7 +26,7 @@ class EventHandler {
 
     handleCommand(cmd, params, origin) { // origin은 message의 원래 객체
         cmd = cmd.toLowerCase()
-        //TODO 허드코딩된 명령어 config에 저장하기
+        //TODO 하드코딩된 명령어 config에 저장하기
         if (cmd === "map") {
             let info = this.apexApi.getMapInfo();
             if (info.length === 0 || typeof info.current === "undefined") {
@@ -44,6 +44,7 @@ class EventHandler {
             let items = this.apexApi.getCraftItems()
             if (items.length === 0) {
                 origin.reply("서버에서 정보를 불러오는 중입니다. 잠시만 기다려주세요.")
+                return
             }
             let text = "";
             for (let i in items) {
@@ -59,4 +60,4 @@ class EventHandler {
     }
 }
 
-module.exports = EventHandler
+module.exports = DiscordHandler
