@@ -5,8 +5,8 @@ class TelegramHandler {
     }
 
     bindEventListener() {
-        this.client.on("polling_error", console.log);
-        this.client.on(/\/map (.+)/, (msg, match) => {
+        this.client.on("message", console.log);
+        this.client.on(RegExp(/\/map (.+)/), (msg, match) => {
             let timeLeft = this.apexApiHandler.getRotationTimeLeft();
             let info = this.apexApiHandler.getMapInfo();
             let current = info.current
@@ -14,8 +14,8 @@ class TelegramHandler {
             let next = info.next.map
             this.client.sendMessage(msg.chat.id, "현재 맵은 " + map + " 입니다.(" + timeLeft + " 남음) 다음 맵은 " + next + " 입니다.")
         })
-        this.client.on(/\/craft (.+)/, (msg, match) => {
-            let items = this.apexApi.getCraftItems()
+        this.client.on(RegExp(/\/craft (.+)/), (msg, match) => {
+            let items = this.apexApiHandler.getCraftItems()
             if (items.length === 0) {
                 this.client.sendMessage(msg.chat.id,"서버에서 정보를 불러오는 중입니다. 잠시만 기다려주세요.")
                 return
