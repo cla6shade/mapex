@@ -18,10 +18,10 @@ const ApexApiHandler = require("./ApexApiHandler.js")
 const discordAuth = new DiscordAuth(discord_token)
 const telegramAuth = new TelegramAuth(telegram_token)
 
-let discordHandler
+let discordHandler;
 let apexApiHandler = new ApexApiHandler(apex_token)
 
-let telegramHandler = new TelegramHandler(telegramAuth.login())
+let telegramHandler = new TelegramHandler(telegramAuth.login(), apexApiHandler)
 telegramHandler.bindEventListener()
 discordAuth.login().then(() => {
     let client = discordAuth.client

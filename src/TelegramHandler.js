@@ -5,6 +5,7 @@ class TelegramHandler {
     }
 
     bindEventListener() {
+        this.client.on("polling_error", console.log);
         this.client.on(/\/map (.+)/, (msg, match) => {
             let timeLeft = this.apexApiHandler.getRotationTimeLeft();
             let info = this.apexApiHandler.getMapInfo();
