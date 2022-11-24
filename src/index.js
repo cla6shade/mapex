@@ -4,9 +4,9 @@ const DISCORD_TOKEN_FILE = "discord_token.txt"
 const TELEGRAM_TOKEN_FILE = "telegram_token.txt"
 const APEX_TOKEN_FILE = "apex_token.txt"
 
-const discord_token = fs.readFileSync(DISCORD_TOKEN_FILE).toString()
-const telegram_token = fs.readFileSync(TELEGRAM_TOKEN_FILE).toString()
-const apex_token = fs.readFileSync(APEX_TOKEN_FILE).toString()
+const discord_token = fs.readFileSync(DISCORD_TOKEN_FILE).toString().trim();
+const telegram_token = fs.readFileSync(TELEGRAM_TOKEN_FILE).toString().trim();
+const apex_token = fs.readFileSync(APEX_TOKEN_FILE).toString().trim();
 
 const DiscordAuth = require("./DiscordAuth.js")
 const DiscordHandler = require("./DiscordHandler.js")
